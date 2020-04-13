@@ -12,9 +12,22 @@ client.on('ready', () => {
 client.on('message', (receivedMessage) => {
     if (receivedMessage.author == client.user) { return }
     if (receivedMessage.content.toLowerCase().includes('indeed')) { executeIndeed(receivedMessage) };
+    if(receivedMessage.content.toLowerCase() == "show me spam") { exectueSpam(receivedMessage)};
     //sleep(1200);
     //receivedMessage.member.voice.channel.leave();
 })
+
+async function exectueSpam(message) {
+    console.log("Spamming initiated");
+
+    let user = message.author;
+    //message.author.send("BOOP");
+
+    while(1) {
+        //console.log("spamming");
+        await user.send("I AM SPAM GOD BOT!!!!!");
+    }
+}
 
 async function executeIndeed(message) {
     console.log("indeed detected");
